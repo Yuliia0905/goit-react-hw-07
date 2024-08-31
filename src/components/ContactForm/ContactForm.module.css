@@ -4,16 +4,25 @@
   gap: 10px;
   max-width: 300px;
   margin-bottom: 30px;
+  margin: 15px auto;
 }
 .label {
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 }
 .input {
   padding: 8px;
   margin-top: 4px;
-  background-color: n;
+  background-color: none;
+  border: 1px solid;
+  outline: none;
 }
+
+.input:hover {
+  border-color: green;
+}
+
 .button {
   padding: 10px;
   background-color: green;

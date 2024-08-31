@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import css from "./ContactForm.module.css";
 
 const phoneRegExp = /^[\d-]+$/;
@@ -27,6 +27,16 @@ const ContactForm = () => {
     );
     actions.resetForm();
   };
+
+  // const handleSubmit = (values, { resetForm }) => {
+  //   dispatch(
+  //     addContact({
+  //       name: values.name,
+  //       number: values.number,
+  //     })
+  //   );
+  //   resetForm();
+  // };
 
   return (
     <Formik
