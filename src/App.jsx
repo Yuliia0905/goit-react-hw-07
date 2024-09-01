@@ -1,14 +1,16 @@
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
 import { RiContactsBook2Fill } from "react-icons/ri";
-import "./App.css";
 import { useEffect } from "react";
 import { fetchContacts } from "./redux/contactsOps";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectLoading } from "./redux/contactsSlice";
+
+import ContactForm from "./components/ContactForm/ContactForm";
+import SearchBox from "./components/SearchBox/SearchBox";
+import ContactList from "./components/ContactList/ContactList";
 import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMassage";
+
+import "./App.css";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,8 +29,10 @@ function App() {
       <ContactForm />
       <SearchBox />
       {loading && <Loader />}
-      {error && <ErrorMessage />}
-      {!loading && !error && <ContactList />}
+      {error && (
+        <ErrorMessage message="Failed to load contacts. Please try again later." />
+      )}
+      <ContactList />
     </div>
   );
 }

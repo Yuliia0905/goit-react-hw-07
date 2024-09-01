@@ -18,25 +18,15 @@ const ContactsValidationSchema = Yup.object().shape({
 const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(
       addContact({
-        name: values.name,
-        number: values.number,
+        name: values.name.trim(),
+        number: values.number.trim(),
       })
     );
-    actions.resetForm();
+    resetForm();
   };
-
-  // const handleSubmit = (values, { resetForm }) => {
-  //   dispatch(
-  //     addContact({
-  //       name: values.name,
-  //       number: values.number,
-  //     })
-  //   );
-  //   resetForm();
-  // };
 
   return (
     <Formik

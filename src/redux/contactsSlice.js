@@ -17,41 +17,39 @@ const contactsSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = payload;
       })
-      .addCase(fetchContacts.rejected, (state, action) => {
+      .addCase(fetchContacts.rejected, (state, { payload }) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = payload;
       })
 
       .addCase(deleteContact.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.items = state.items.filter(
-          (item) => item.id !== action.payload.id
-        );
+        state.items = state.items.filter((item) => item.id !== payload.id);
       })
-      .addCase(deleteContact.rejected, (state, action) => {
+      .addCase(deleteContact.rejected, (state, { payload }) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = payload;
       })
 
       .addCase(addContact.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(addContact.fulfilled, (state, action) => {
+      .addCase(addContact.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.items.push(action.payload);
+        state.items.push(payload);
       })
-      .addCase(addContact.rejected, (state, action) => {
+      .addCase(addContact.rejected, (state, { payload }) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = payload;
       }),
 });
 

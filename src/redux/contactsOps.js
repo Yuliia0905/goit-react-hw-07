@@ -6,7 +6,7 @@ import {
 } from "../services/contactsApi";
 
 export const fetchContacts = createAsyncThunk(
-  "contacts/fetchAll",
+  "contacts/fetchContacts",
   async (_, thunkApi) => {
     try {
       const data = await getContacts();
