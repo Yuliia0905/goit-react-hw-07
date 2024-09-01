@@ -14,7 +14,7 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
+  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
       </h1>
       <ContactForm />
       <SearchBox />
-      {loading && <Loader />}
+      {isLoading && <Loader />}
       {error && (
         <ErrorMessage message="Failed to load contacts. Please try again later." />
       )}
